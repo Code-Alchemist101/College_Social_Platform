@@ -21,7 +21,9 @@ const NotificationCenter = ({ isOpen, onClose }) => {
                 zIndex: 100,
                 borderRadius: 'var(--radius-lg)',
                 overflow: 'hidden',
-                boxShadow: '0 10px 40px -10px rgba(0,0,0,0.2)'
+                boxShadow: '0 10px 40px -10px rgba(0,0,0,0.5)',
+                backgroundColor: 'rgba(10, 10, 10, 0.95)',
+                border: '1px solid rgba(255,255,255,0.15)'
             }}
         >
             <div style={{
