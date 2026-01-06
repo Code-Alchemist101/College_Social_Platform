@@ -7,6 +7,7 @@ import EventsList from './features/events/EventsList';
 import GroupFinder from './features/groups/GroupFinder';
 import Profile from './pages/Profile';
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 // Protected Route Component
 const PrivateRoute = ({ children }) => {
@@ -15,6 +16,12 @@ const PrivateRoute = ({ children }) => {
 };
 
 function App() {
+    const { mode } = useSelector((state) => state.theme);
+
+    useEffect(() => {
+        document.body.setAttribute('data-theme', mode);
+    }, [mode]);
+
     return (
         <Router>
             <Layout>

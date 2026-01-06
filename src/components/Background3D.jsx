@@ -1,4 +1,5 @@
 import { useRef, useMemo } from 'react';
+import { useSelector } from 'react-redux';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as random from 'maath/random/dist/maath-random.esm';
@@ -37,10 +38,14 @@ const ParticleField = (props) => {
 };
 
 const Background3D = () => {
+    const { mode } = useSelector((state) => state.theme);
+    const bgColor = mode === 'dark' ? '#050505' : '#f0f2f5';
+    const particleColor = mode === 'dark' ? '#ffffff' : '#000000';
+
     return (
-        <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, background: '#050505' }}>
+        <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, background: bgColor, transition: 'background 0.3s ease' }}>
             <Canvas camera={{ position: [0, 0, 1] }}>
-                <ParticleField />
+                <ParticleField color={particleColor} />
             </Canvas>
         </div>
     );

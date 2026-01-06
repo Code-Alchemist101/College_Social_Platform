@@ -2,13 +2,29 @@
 
 :root {
   --font-main: 'Outfit', sans-serif;
+
+  /* Shared Defaults (Dark Mode) */
   --bg-dark: #050505;
   --text-primary: #ffffff;
   --text-secondary: rgba(255, 255, 255, 0.6);
   --accent: #ffffff;
   --glass-border: rgba(255, 255, 255, 0.1);
   --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-menu-bg: rgba(20, 20, 20, 0.85);
   --glass-highlight: rgba(255, 255, 255, 0.08);
+}
+
+body[data-theme='light'] {
+  --bg-dark: #f0f2f5;
+  /* Light background */
+  --text-primary: #1a1a1a;
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --accent: #000000;
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-menu-bg: rgba(255, 255, 255, 0.9);
+  /* Frosty white */
+  --glass-highlight: rgba(255, 255, 255, 0.8);
 }
 
 * {
@@ -31,9 +47,11 @@ body {
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--bg-dark);
 }
+
 ::-webkit-scrollbar-thumb {
   background: #333;
   border-radius: 3px;
@@ -42,7 +60,8 @@ body {
 #root {
   min-height: 100vh;
   position: relative;
-  z-index: 1; /* Content above background */
+  z-index: 1;
+  /* Content above background */
 }
 
 /* Utility Utilities */
@@ -57,6 +76,12 @@ body {
 
 .text-gradient {
   background: linear-gradient(to right, #b0b0b0, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body[data-theme='light'] .text-gradient {
+  background: linear-gradient(to right, #4b5563, #000000);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

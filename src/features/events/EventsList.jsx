@@ -9,8 +9,8 @@ const EventsList = () => {
     return (
         <div style={{ paddingBottom: '4rem' }}>
             <div style={{ marginBottom: '3rem', display: 'flex', alignItems: 'baseline', gap: '1rem' }}>
-                <h1 style={{ fontSize: '3rem', fontWeight: 700, letterSpacing: '-0.02em', background: 'linear-gradient(to right, #fff, #999)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Events</h1>
-                <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.2rem' }}>Discover what's happening</span>
+                <h1 className="text-gradient" style={{ fontSize: '3rem', fontWeight: 700, letterSpacing: '-0.02em' }}>Events</h1>
+                <span style={{ color: 'var(--text-secondary)', fontSize: '1.2rem' }}>Discover what's happening</span>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '32px' }}>
@@ -29,29 +29,29 @@ const EventsList = () => {
                                 fontSize: '0.75rem',
                                 textTransform: 'uppercase',
                                 letterSpacing: '0.05em',
-                                color: '#fff',
+                                color: 'var(--text-primary)',
                                 fontWeight: 700,
-                                background: 'rgba(255, 255, 255, 0.1)',
+                                background: 'var(--glass-highlight)',
                                 padding: '6px 10px',
                                 borderRadius: '8px'
                             }}>{event.category}</span>
                         </div>
 
-                        <h3 style={{ fontSize: '1.5rem', marginBottom: '12px', color: '#fff', lineHeight: 1.2 }}>{event.title}</h3>
-                        <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '24px', flex: 1, lineHeight: 1.6, fontSize: '1rem' }}>{event.description}</p>
+                        <h3 style={{ fontSize: '1.5rem', marginBottom: '12px', color: 'var(--text-primary)', lineHeight: 1.2 }}>{event.title}</h3>
+                        <p style={{ color: 'var(--text-secondary)', marginBottom: '24px', flex: 1, lineHeight: 1.6, fontSize: '1rem' }}>{event.description}</p>
 
                         <div style={{
                             paddingTop: '20px',
-                            borderTop: '1px solid rgba(255,255,255,0.1)',
+                            borderTop: '1px solid var(--glass-border)',
                             display: 'flex',
                             flexDirection: 'column',
                             gap: '12px'
                         }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
                                 <Calendar size={18} />
                                 <span>{event.date}</span>
                             </div>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
                                 <MapPin size={18} />
                                 <span>{event.location}</span>
                             </div>
@@ -62,8 +62,8 @@ const EventsList = () => {
                             width: '100%',
                             padding: '12px',
                             borderRadius: '12px',
-                            background: '#fff',
-                            color: '#000',
+                            background: 'var(--text-primary)', // Invert for button
+                            color: 'var(--bg-dark)',
                             border: 'none',
                             fontSize: '1rem',
                             fontWeight: 600,

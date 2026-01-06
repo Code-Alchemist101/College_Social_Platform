@@ -26,13 +26,13 @@ const Profile = () => {
                     justifyContent: 'center',
                     fontSize: '3rem',
                     fontWeight: 600,
-                    color: 'black',  // Contrast with white/accent
-                    boxShadow: '0 20px 40px -10px rgba(255,255,255,0.1)'
+                    color: 'var(--bg-dark)',  // Contrast with white/accent
+                    boxShadow: '0 20px 40px -10px var(--glass-border)'
                 }}>
                     {user?.username?.charAt(0).toUpperCase()}
                 </div>
-                <h1 style={{ fontSize: '2rem', marginBottom: '0.5rem', color: '#fff' }}>{user?.username}</h1>
-                <p style={{ color: 'rgba(255,255,255,0.6)' }}>Student • Computer Science</p>
+                <h1 style={{ fontSize: '2rem', marginBottom: '0.5rem', color: 'var(--text-primary)' }}>{user?.username}</h1>
+                <p style={{ color: 'var(--text-secondary)' }}>Student • Computer Science</p>
             </div>
 
             <div className="glass-panel" style={{ overflow: 'hidden', borderRadius: '24px' }}>
@@ -43,11 +43,11 @@ const Profile = () => {
                             display: 'flex',
                             alignItems: 'center',
                             padding: '20px 24px',
-                            borderBottom: index !== menuItems.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
+                            borderBottom: index !== menuItems.length - 1 ? '1px solid var(--glass-border)' : 'none',
                             cursor: 'pointer',
                             transition: 'background 0.2s'
                         }}
-                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)'}
+                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--glass-highlight)'}
                         onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                     >
                         <div style={{
@@ -62,8 +62,8 @@ const Profile = () => {
                         }}>
                             <item.icon size={20} color="white" />
                         </div>
-                        <span style={{ flex: 1, fontSize: '1.05rem', fontWeight: 500, color: '#fff' }}>{item.label}</span>
-                        <ChevronRight size={20} color="rgba(255,255,255,0.3)" />
+                        <span style={{ flex: 1, fontSize: '1.05rem', fontWeight: 500, color: 'var(--text-primary)' }}>{item.label}</span>
+                        <ChevronRight size={20} color="var(--text-secondary)" />
                     </div>
                 ))}
             </div>

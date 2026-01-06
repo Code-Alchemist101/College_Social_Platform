@@ -21,16 +21,16 @@ const GroupFinder = () => {
         <div style={{ paddingBottom: '4rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '3rem' }}>
                 <div>
-                    <h1 style={{ fontSize: '3rem', fontWeight: 700, marginBottom: '0.5rem', background: 'linear-gradient(to right, #fff, #999)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Groups</h1>
-                    <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.2rem' }}>Connect with peers pursuing similar interests.</p>
+                    <h1 className="text-gradient" style={{ fontSize: '3rem', fontWeight: 700, marginBottom: '0.5rem' }}>Groups</h1>
+                    <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem' }}>Connect with peers pursuing similar interests.</p>
                 </div>
                 <button
                     onClick={() => setShowCreate(!showCreate)}
                     style={{
                         padding: '12px 24px',
                         borderRadius: '100px',
-                        background: '#fff',
-                        color: '#000',
+                        background: 'var(--text-primary)',
+                        color: 'var(--bg-dark)',
                         border: 'none',
                         fontSize: '1rem',
                         fontWeight: 600,
@@ -54,10 +54,10 @@ const GroupFinder = () => {
                         className="glass-panel"
                         style={{ padding: '32px', maxWidth: '600px', margin: '0 auto', overflow: 'hidden' }}
                     >
-                        <h3 style={{ marginBottom: '24px', fontSize: '1.5rem', color: '#fff' }}>Start a New Group</h3>
+                        <h3 style={{ marginBottom: '24px', fontSize: '1.5rem', color: 'var(--text-primary)' }}>Start a New Group</h3>
                         <form onSubmit={handleCreate}>
                             <div style={{ marginBottom: '20px' }}>
-                                <label style={{ display: 'block', marginBottom: '8px', color: 'rgba(255,255,255,0.8)', fontSize: '0.9rem' }}>Group Name</label>
+                                <label style={{ display: 'block', marginBottom: '8px', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Group Name</label>
                                 <input
                                     placeholder="e.g. Advanced AI Study Circle"
                                     value={newGroup.name}
@@ -65,17 +65,17 @@ const GroupFinder = () => {
                                     style={{
                                         width: '100%',
                                         padding: '12px 16px',
-                                        background: 'rgba(255,255,255,0.05)',
-                                        border: '1px solid rgba(255,255,255,0.1)',
+                                        background: 'var(--glass-bg)',
+                                        border: '1px solid var(--glass-border)',
                                         borderRadius: '12px',
-                                        color: '#fff',
+                                        color: 'var(--text-primary)',
                                         fontSize: '1rem',
                                         outline: 'none'
                                     }}
                                 />
                             </div>
                             <div style={{ marginBottom: '32px' }}>
-                                <label style={{ display: 'block', marginBottom: '8px', color: 'rgba(255,255,255,0.8)', fontSize: '0.9rem' }}>Topic</label>
+                                <label style={{ display: 'block', marginBottom: '8px', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Topic</label>
                                 <input
                                     placeholder="e.g. Computer Science"
                                     value={newGroup.topic}
@@ -83,18 +83,18 @@ const GroupFinder = () => {
                                     style={{
                                         width: '100%',
                                         padding: '12px 16px',
-                                        background: 'rgba(255,255,255,0.05)',
-                                        border: '1px solid rgba(255,255,255,0.1)',
+                                        background: 'var(--glass-bg)',
+                                        border: '1px solid var(--glass-border)',
                                         borderRadius: '12px',
-                                        color: '#fff',
+                                        color: 'var(--text-primary)',
                                         fontSize: '1rem',
                                         outline: 'none'
                                     }}
                                 />
                             </div>
                             <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '12px' }}>
-                                <button type="button" onClick={() => setShowCreate(false)} style={{ background: 'transparent', color: 'rgba(255,255,255,0.6)', border: 'none', padding: '10px 20px', cursor: 'pointer' }}>Cancel</button>
-                                <button type="submit" style={{ background: '#fff', color: '#000', border: 'none', padding: '12px 24px', borderRadius: '12px', fontWeight: 600, cursor: 'pointer' }}>Create Group</button>
+                                <button type="button" onClick={() => setShowCreate(false)} style={{ background: 'transparent', color: 'var(--text-secondary)', border: 'none', padding: '10px 20px', cursor: 'pointer' }}>Cancel</button>
+                                <button type="submit" style={{ background: 'var(--text-primary)', color: 'var(--bg-dark)', border: 'none', padding: '12px 24px', borderRadius: '12px', fontWeight: 600, cursor: 'pointer' }}>Create Group</button>
                             </div>
                         </form>
                     </motion.div>
@@ -117,27 +117,27 @@ const GroupFinder = () => {
                                 width: '48px',
                                 height: '48px',
                                 borderRadius: '12px',
-                                background: 'rgba(255,255,255,0.1)',
+                                background: 'var(--glass-highlight)',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center'
                             }}>
-                                <Users size={24} color="#fff" />
+                                <Users size={24} color="var(--text-primary)" />
                             </div>
                             <span style={{
                                 fontSize: '0.85rem',
-                                color: 'rgba(255,255,255,0.8)',
-                                background: 'rgba(255,255,255,0.05)',
+                                color: 'var(--text-secondary)',
+                                background: 'var(--glass-bg)',
                                 padding: '6px 12px',
                                 borderRadius: '100px',
-                                border: '1px solid rgba(255,255,255,0.1)'
+                                border: '1px solid var(--glass-border)'
                             }}>
                                 {group.members} Members
                             </span>
                         </div>
 
-                        <h3 style={{ fontSize: '1.4rem', marginBottom: '8px', color: '#fff' }}>{group.name}</h3>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'rgba(255,255,255,0.5)', marginBottom: '24px', fontSize: '1rem' }}>
+                        <h3 style={{ fontSize: '1.4rem', marginBottom: '8px', color: 'var(--text-primary)' }}>{group.name}</h3>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-secondary)', marginBottom: '24px', fontSize: '1rem' }}>
                             <Hash size={16} />
                             <span>{group.topic}</span>
                         </div>
@@ -147,8 +147,8 @@ const GroupFinder = () => {
                             padding: '12px',
                             borderRadius: '12px',
                             background: 'transparent',
-                            color: '#fff',
-                            border: '1px solid rgba(255,255,255,0.3)',
+                            color: 'var(--text-primary)',
+                            border: '1px solid var(--glass-border)',
                             fontSize: '1rem',
                             fontWeight: 500,
                             cursor: 'pointer',

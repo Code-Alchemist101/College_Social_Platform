@@ -19,11 +19,13 @@ const NotificationCenter = ({ isOpen, onClose }) => {
                 right: '0',
                 width: '320px',
                 zIndex: 100,
-                borderRadius: 'var(--radius-lg)',
+                borderRadius: '12px',
                 overflow: 'hidden',
-                boxShadow: '0 10px 40px -10px rgba(0,0,0,0.5)',
-                backgroundColor: 'rgba(10, 10, 10, 0.95)',
-                border: '1px solid rgba(255,255,255,0.15)'
+                boxShadow: '0 10px 40px -10px rgba(0,0,0,0.2)',
+                background: 'var(--glass-menu-bg)', // Dynamic background
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
+                border: '1px solid var(--glass-border)'
             }}
         >
             <div style={{
@@ -33,28 +35,28 @@ const NotificationCenter = ({ isOpen, onClose }) => {
                 justifyContent: 'space-between',
                 alignItems: 'center'
             }}>
-                <span style={{ fontWeight: 600, fontSize: '0.9rem' }}>Notifications</span>
-                <span style={{ fontSize: '0.75rem', color: 'var(--accent-primary)', cursor: 'pointer' }}>Mark all read</span>
+                <span style={{ fontWeight: 600, fontSize: '0.9rem', color: 'var(--text-primary)' }}>Notifications</span>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', cursor: 'pointer' }}>Mark all read</span>
             </div>
 
             <div style={{ maxHeight: '300px', overflowY: 'auto' }}>
                 {notifications.map(notif => (
                     <div key={notif.id} style={{
                         padding: '12px 16px',
-                        borderBottom: '1px solid rgba(0,0,0,0.03)',
+                        borderBottom: '1px solid var(--glass-border)',
                         display: 'flex',
                         gap: '12px',
                         transition: 'background 0.2s',
                         cursor: 'pointer'
                     }}
-                        onMouseEnter={e => e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.02)'}
+                        onMouseEnter={e => e.currentTarget.style.backgroundColor = 'var(--glass-highlight)'}
                         onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}
                     >
                         <div style={{
                             width: '8px',
                             height: '8px',
                             borderRadius: '50%',
-                            background: notif.type === 'success' ? 'var(--accent-success)' : 'var(--accent-primary)',
+                            background: notif.type === 'success' ? '#34d399' : '#60a5fa',
                             marginTop: '6px'
                         }} />
                         <div>

@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../features/auth/authSlice';
-import { Rocket, Search, Bell, LogOut, LayoutGrid, Calendar, Users } from 'lucide-react';
+import { toggleTheme } from '../features/theme/themeSlice';
+import { Rocket, Search, Bell, LogOut, LayoutGrid, Calendar, Users, Sun, Moon } from 'lucide-react';
 import SearchModal from './SearchModal';
 import NotificationCenter from './NotificationCenter';
 
 const Navbar = () => {
     const { isAuthenticated, user } = useSelector((state) => state.auth);
+    const { mode } = useSelector((state) => state.theme);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const location = useLocation();
@@ -61,13 +63,13 @@ const Navbar = () => {
                 }}>
                     {/* Logo Section */}
                     <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
-                        <div style={{ background: '#fff', borderRadius: '50%', padding: '6px', display: 'flex' }}>
-                            <Rocket size={16} color="#000" fill="#000" />
+                        <div style={{ background: 'var(--accent)', borderRadius: '50%', padding: '6px', display: 'flex' }}>
+                            <Rocket size={16} color="var(--bg-dark)" fill="var(--bg-dark)" />
                         </div>
-                        <span style={{ fontWeight: 600, fontSize: '1rem', letterSpacing: '-0.02em', color: '#fff' }}>CampusConnect</span>
+                        <span style={{ fontWeight: 600, fontSize: '1rem', letterSpacing: '-0.02em', color: 'var(--text-primary)' }}>CampusConnect</span>
                     </Link>
 
-                    {isAuthenticated && <div style={{ width: '1px', height: '24px', background: 'rgba(255,255,255,0.1)' }} />}
+                    {isAuthenticated && <div style={{ width: '1px', height: '24px', background: 'var(--glass-border)' }} />}
 
                     {/* Navigation Pills */}
                     {isAuthenticated && (
@@ -87,8 +89,8 @@ const Navbar = () => {
                                             gap: '8px',
                                             fontSize: '0.85rem',
                                             fontWeight: 500,
-                                            color: active ? '#000' : 'rgba(255,255,255,0.7)',
-                                            background: active ? '#fff' : 'transparent',
+                                            color: active ? 'var(--bg-dark)' : 'var(--text-secondary)',
+                                            background: active ? 'var(--accent)' : 'transparent',
                                             textDecoration: 'none',
                                             transition: 'all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1)'
                                         }}
@@ -101,7 +103,7 @@ const Navbar = () => {
                         </div>
                     )}
 
-                    {isAuthenticated && <div style={{ width: '1px', height: '24px', background: 'rgba(255,255,255,0.1)' }} />}
+                    {isAuthenticated && <div style={{ width: '1px', height: '24px', background: 'var(--glass-border)' }} />}
 
                     {/* Actions */}
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -110,7 +112,7 @@ const Navbar = () => {
                                 <button
                                     onClick={() => setIsSearchOpen(true)}
                                     style={{
-                                        background: 'rgba(255,255,255,0.05)',
+                                        background: 'var(--glass-bg)',
                                         border: 'none',
                                         borderRadius: '50%',
                                         width: '40px',
@@ -118,12 +120,12 @@ const Navbar = () => {
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center',
-                                        color: '#fff',
+                                        color: 'var(--text-primary)',
                                         cursor: 'pointer',
                                         transition: 'background 0.2s'
                                     }}
-                                    onMouseEnter={(e) => e.target.style.background = 'rgba(255,255,255,0.1)'}
-                                    onMouseLeave={(e) => e.target.style.background = 'rgba(255,255,255,0.05)'}
+                                    onMouseEnter={(e) => e.target.style.background = 'var(--glass-highlight)'}
+                                    onMouseLeave={(e) => e.target.style.background = 'var(--glass-bg)'}
                                 >
                                     <Search size={18} />
                                 </button>
@@ -132,7 +134,7 @@ const Navbar = () => {
                                     <button
                                         onClick={() => setIsNotifOpen(!isNotifOpen)}
                                         style={{
-                                            background: 'rgba(255,255,255,0.05)',
+                                            background: 'var(--glass-bg)',
                                             border: 'none',
                                             borderRadius: '50%',
                                             width: '40px',
@@ -140,12 +142,12 @@ const Navbar = () => {
                                             display: 'flex',
                                             alignItems: 'center',
                                             justifyContent: 'center',
-                                            color: '#fff',
+                                            color: 'var(--text-primary)',
                                             cursor: 'pointer',
                                             transition: 'background 0.2s'
                                         }}
-                                        onMouseEnter={(e) => e.target.style.background = 'rgba(255,255,255,0.1)'}
-                                        onMouseLeave={(e) => e.target.style.background = 'rgba(255,255,255,0.05)'}
+                                        onMouseEnter={(e) => e.target.style.background = 'var(--glass-highlight)'}
+                                        onMouseLeave={(e) => e.target.style.background = 'var(--glass-bg)'}
                                     >
                                         <Bell size={18} />
                                         <span style={{
@@ -161,15 +163,36 @@ const Navbar = () => {
                                     <NotificationCenter isOpen={isNotifOpen} onClose={() => setIsNotifOpen(false)} />
                                 </div>
 
+                                <button
+                                    onClick={() => dispatch(toggleTheme())}
+                                    style={{
+                                        background: 'var(--glass-bg)',
+                                        border: 'none',
+                                        borderRadius: '50%',
+                                        width: '40px',
+                                        height: '40px',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        color: 'var(--text-primary)',
+                                        cursor: 'pointer',
+                                        transition: 'background 0.2s'
+                                    }}
+                                    onMouseEnter={(e) => e.target.style.background = 'var(--glass-highlight)'}
+                                    onMouseLeave={(e) => e.target.style.background = 'var(--glass-bg)'}
+                                >
+                                    {mode === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+                                </button>
+
                                 <Link to="/profile" style={{
                                     width: '40px',
                                     height: '40px',
                                     borderRadius: '50%',
-                                    background: 'linear-gradient(135deg, #fff, #999)',
+                                    background: 'linear-gradient(135deg, var(--accent), #999)',
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    color: '#000',
+                                    color: 'var(--bg-dark)',
                                     fontWeight: 700,
                                     fontSize: '0.9rem',
                                     textDecoration: 'none'
@@ -183,12 +206,12 @@ const Navbar = () => {
                                         background: 'transparent',
                                         border: 'none',
                                         padding: '0 8px',
-                                        color: 'rgba(255,255,255,0.4)',
+                                        color: 'var(--text-secondary)',
                                         cursor: 'pointer',
                                         transition: 'color 0.2s'
                                     }}
-                                    onMouseEnter={(e) => e.target.style.color = '#fff'}
-                                    onMouseLeave={(e) => e.target.style.color = 'rgba(255,255,255,0.4)'}
+                                    onMouseEnter={(e) => e.target.style.color = 'var(--text-primary)'}
+                                    onMouseLeave={(e) => e.target.style.color = 'var(--text-secondary)'}
                                 >
                                     <LogOut size={18} />
                                 </button>
@@ -196,8 +219,8 @@ const Navbar = () => {
                         ) : (
                             <div style={{ display: 'flex', gap: '8px' }}>
                                 <Link to="/login" style={{
-                                    background: isActive('/login') ? '#fff' : 'transparent',
-                                    color: isActive('/login') ? '#000' : 'rgba(255,255,255,0.8)',
+                                    background: isActive('/login') ? 'var(--accent)' : 'transparent',
+                                    color: isActive('/login') ? 'var(--bg-dark)' : 'var(--text-secondary)',
                                     borderRadius: '100px',
                                     padding: '8px 20px',
                                     textDecoration: 'none',
@@ -206,8 +229,8 @@ const Navbar = () => {
                                     transition: 'all 0.3s ease'
                                 }}>Log in</Link>
                                 <Link to="/signup" style={{
-                                    background: isActive('/signup') ? '#fff' : 'transparent',
-                                    color: isActive('/signup') ? '#000' : 'rgba(255,255,255,0.8)',
+                                    background: isActive('/signup') ? 'var(--accent)' : 'transparent',
+                                    color: isActive('/signup') ? 'var(--bg-dark)' : 'var(--text-secondary)',
                                     borderRadius: '100px',
                                     padding: '8px 20px',
                                     textDecoration: 'none',

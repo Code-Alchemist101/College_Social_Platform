@@ -16,6 +16,7 @@ const Dashboard = () => {
     return (
         <div style={{ paddingBottom: '4rem' }}>
             {/* Hero Section */}
+            {/* Hero Section */}
             <section style={{
                 textAlign: 'center',
                 padding: '8vh 0 6vh',
@@ -27,21 +28,18 @@ const Dashboard = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <h1 style={{
+                    <h1 className="text-gradient" style={{
                         fontSize: 'clamp(3rem, 8vw, 6rem)',
                         fontWeight: 700,
                         marginBottom: '1rem',
                         lineHeight: 1.1,
-                        background: 'linear-gradient(to bottom right, #fff, #666)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
                         letterSpacing: '-0.04em'
                     }}>
                         Hello, {user?.username}
                     </h1>
                     <p style={{
                         fontSize: 'clamp(1.2rem, 2vw, 1.8rem)',
-                        color: 'rgba(255,255,255,0.6)',
+                        color: 'var(--text-secondary)',
                         maxWidth: '600px',
                         margin: '0 auto 3rem',
                         fontWeight: 300
@@ -59,7 +57,7 @@ const Dashboard = () => {
                     <Link to="/events" className="glass-panel" style={{
                         padding: '16px 32px',
                         fontSize: '1.1rem',
-                        color: '#fff',
+                        color: 'var(--text-primary)',
                         textDecoration: 'none',
                         fontWeight: 500,
                         transition: 'transform 0.2s, background 0.2s',
@@ -68,7 +66,7 @@ const Dashboard = () => {
                         alignItems: 'center',
                         gap: '10px'
                     }}
-                        onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.05)'; e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; }}
+                        onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.05)'; e.currentTarget.style.background = 'var(--glass-highlight)'; }}
                         onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.background = 'var(--glass-bg)'; }}
                     >
                         Browse Events
@@ -114,8 +112,8 @@ const Dashboard = () => {
                             <stat.icon size={28} color={stat.color} />
                         </div>
                         <div>
-                            <div style={{ fontSize: '2.5rem', fontWeight: 700, lineHeight: 1, marginBottom: '4px' }}>{stat.value}</div>
-                            <div style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.5)', fontWeight: 500 }}>{stat.label}</div>
+                            <div style={{ fontSize: '2.5rem', fontWeight: 700, lineHeight: 1, marginBottom: '4px', color: 'var(--text-primary)' }}>{stat.value}</div>
+                            <div style={{ fontSize: '1rem', color: 'var(--text-secondary)', fontWeight: 500 }}>{stat.label}</div>
                         </div>
                     </motion.div>
                 ))}
@@ -126,7 +124,7 @@ const Dashboard = () => {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                style={{ fontSize: '2rem', marginBottom: '32px', fontWeight: 600 }}
+                style={{ fontSize: '2rem', marginBottom: '32px', fontWeight: 600, color: 'var(--text-primary)' }}
             >
                 Start Exploring
             </motion.h2>
@@ -142,18 +140,18 @@ const Dashboard = () => {
                             <div style={{
                                 width: '50px',
                                 height: '50px',
-                                background: '#fff',
+                                background: 'var(--accent)',
                                 borderRadius: '50%',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 marginBottom: '24px',
-                                color: '#000'
+                                color: 'var(--bg-dark)'
                             }}>
                                 <Calendar size={24} />
                             </div>
-                            <h3 style={{ fontSize: '1.8rem', marginBottom: '12px', color: '#fff' }}>Events</h3>
-                            <p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.6, fontSize: '1.1rem' }}>
+                            <h3 style={{ fontSize: '1.8rem', marginBottom: '12px', color: 'var(--text-primary)' }}>Events</h3>
+                            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6, fontSize: '1.1rem' }}>
                                 Discover workshops, socials, and gatherings happening right now.
                             </p>
                         </div>
@@ -164,7 +162,7 @@ const Dashboard = () => {
                             right: '-10%',
                             width: '200px',
                             height: '200px',
-                            background: 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%)',
+                            background: 'radial-gradient(circle, var(--glass-highlight) 0%, transparent 70%)',
                             borderRadius: '50%',
                             filter: 'blur(40px)'
                         }} />
@@ -181,18 +179,18 @@ const Dashboard = () => {
                             <div style={{
                                 width: '50px',
                                 height: '50px',
-                                background: '#fff',
+                                background: 'var(--accent)',
                                 borderRadius: '50%',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 marginBottom: '24px',
-                                color: '#000'
+                                color: 'var(--bg-dark)'
                             }}>
                                 <Users size={24} />
                             </div>
-                            <h3 style={{ fontSize: '1.8rem', marginBottom: '12px', color: '#fff' }}>Groups</h3>
-                            <p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.6, fontSize: '1.1rem' }}>
+                            <h3 style={{ fontSize: '1.8rem', marginBottom: '12px', color: 'var(--text-primary)' }}>Groups</h3>
+                            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6, fontSize: '1.1rem' }}>
                                 Find your community. Join study groups and interest clubs.
                             </p>
                         </div>
@@ -203,7 +201,7 @@ const Dashboard = () => {
                             right: '-10%',
                             width: '200px',
                             height: '200px',
-                            background: 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%)',
+                            background: 'radial-gradient(circle, var(--glass-highlight) 0%, transparent 70%)',
                             borderRadius: '50%',
                             filter: 'blur(40px)'
                         }} />
