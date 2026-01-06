@@ -1,19 +1,28 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from './authSlice';
+import { authService } from './authService';
 import { useNavigate, Link } from 'react-router-dom';
 import { Rocket, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Login = () => {
     const [formData, setFormData] = useState({ username: '', password: '' });
+    const [error, setError] = useState('');
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(login({ username: formData.username || 'Student', id: 1, role: 'student' }));
-        navigate('/');
+        setError('');
+
+        try {
+            const user = authService.login(formData.username, formData.password);
+            dispatch(login(user));
+            navigate('/');
+        } catch (err) {
+            setError(err.message);
+        }
     };
 
     return (
@@ -49,6 +58,19 @@ const Login = () => {
                 </div>
 
                 <form onSubmit={handleSubmit}>
+                    {error && (
+                        <div style={{
+                            background: 'rgba(255, 77, 77, 0.1)',
+                            border: '1px solid rgba(255, 77, 77, 0.2)',
+                            color: '#ff4d4d',
+                            padding: '12px',
+                            borderRadius: '8px',
+                            marginBottom: '20px',
+                            textAlign: 'center'
+                        }}>
+                            {error}
+                        </div>
+                    )}
                     <div style={{ marginBottom: '20px' }}>
                         <input
                             type="text"
