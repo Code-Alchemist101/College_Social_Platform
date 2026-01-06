@@ -97,7 +97,7 @@ const Signup = () => {
                     <div style={{ marginBottom: '20px' }}>
                         <input
                             type="email"
-                            placeholder="University Email"
+                            placeholder="Email"
                             value={formData.email}
                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                             style={{
