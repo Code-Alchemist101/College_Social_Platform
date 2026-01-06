@@ -195,8 +195,26 @@ const Navbar = () => {
                             </>
                         ) : (
                             <div style={{ display: 'flex', gap: '8px' }}>
-                                <Link to="/login" style={{ color: 'rgba(255,255,255,0.8)', textDecoration: 'none', padding: '8px 16px', fontSize: '0.9rem', fontWeight: 500 }}>Log in</Link>
-                                <Link to="/signup" style={{ background: '#fff', color: '#000', borderRadius: '100px', padding: '8px 20px', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 600 }}>Sign up</Link>
+                                <Link to="/login" style={{
+                                    background: isActive('/login') ? '#fff' : 'transparent',
+                                    color: isActive('/login') ? '#000' : 'rgba(255,255,255,0.8)',
+                                    borderRadius: '100px',
+                                    padding: '8px 20px',
+                                    textDecoration: 'none',
+                                    fontSize: '0.9rem',
+                                    fontWeight: isActive('/login') ? 600 : 500,
+                                    transition: 'all 0.3s ease'
+                                }}>Log in</Link>
+                                <Link to="/signup" style={{
+                                    background: isActive('/signup') ? '#fff' : 'transparent',
+                                    color: isActive('/signup') ? '#000' : 'rgba(255,255,255,0.8)',
+                                    borderRadius: '100px',
+                                    padding: '8px 20px',
+                                    textDecoration: 'none',
+                                    fontSize: '0.9rem',
+                                    fontWeight: isActive('/signup') ? 600 : 500,
+                                    transition: 'all 0.3s ease'
+                                }}>Sign up</Link>
                             </div>
                         )}
                     </div>
