@@ -217,7 +217,28 @@ const Navbar = () => {
                                 </button>
                             </>
                         ) : (
-                            <div style={{ display: 'flex', gap: '8px' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                <button
+                                    onClick={() => dispatch(toggleTheme())}
+                                    style={{
+                                        background: 'var(--glass-bg)',
+                                        border: 'none',
+                                        borderRadius: '50%',
+                                        width: '40px',
+                                        height: '40px',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        color: 'var(--text-primary)',
+                                        cursor: 'pointer',
+                                        transition: 'background 0.2s',
+                                        marginRight: '8px'
+                                    }}
+                                    onMouseEnter={(e) => e.target.style.background = 'var(--glass-highlight)'}
+                                    onMouseLeave={(e) => e.target.style.background = 'var(--glass-bg)'}
+                                >
+                                    {mode === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+                                </button>
                                 <Link to="/login" style={{
                                     background: isActive('/login') ? 'var(--accent)' : 'transparent',
                                     color: isActive('/login') ? 'var(--bg-dark)' : 'var(--text-secondary)',

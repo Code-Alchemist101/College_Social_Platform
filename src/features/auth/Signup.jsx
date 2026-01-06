@@ -37,7 +37,7 @@ const Signup = () => {
             >
                 <div style={{ textAlign: 'center', marginBottom: '40px' }}>
                     <div style={{
-                        background: '#fff',
+                        background: 'var(--accent)',
                         width: '64px',
                         height: '64px',
                         borderRadius: '50%',
@@ -46,10 +46,10 @@ const Signup = () => {
                         justifyContent: 'center',
                         margin: '0 auto 24px',
                     }}>
-                        <Rocket color="#000" size={32} />
+                        <Rocket color="var(--bg-dark)" size={32} />
                     </div>
-                    <h1 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '8px', color: '#fff' }}>Join Us</h1>
-                    <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.1rem' }}>Create your CampusConnect ID</p>
+                    <h1 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '8px', color: 'var(--text-primary)' }}>Join Us</h1>
+                    <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem' }}>Create your CampusConnect ID</p>
                 </div>
 
                 <form onSubmit={handleSubmit}>
@@ -75,22 +75,22 @@ const Signup = () => {
                             style={{
                                 width: '100%',
                                 height: '56px',
-                                background: 'rgba(255,255,255,0.05)',
-                                border: '1px solid rgba(255,255,255,0.1)',
+                                background: 'var(--glass-bg)',
+                                border: '1px solid var(--glass-border)',
                                 borderRadius: '12px',
                                 padding: '0 20px',
                                 fontSize: '1.1rem',
-                                color: '#fff',
+                                color: 'var(--text-primary)',
                                 outline: 'none',
                                 transition: 'all 0.2s'
                             }}
                             onFocus={(e) => {
-                                e.target.style.background = 'rgba(255,255,255,0.1)';
-                                e.target.style.borderColor = 'rgba(255,255,255,0.3)';
+                                e.target.style.background = 'var(--glass-highlight)';
+                                e.target.style.borderColor = 'var(--text-secondary)';
                             }}
                             onBlur={(e) => {
-                                e.target.style.background = 'rgba(255,255,255,0.05)';
-                                e.target.style.borderColor = 'rgba(255,255,255,0.1)';
+                                e.target.style.background = 'var(--glass-bg)';
+                                e.target.style.borderColor = 'var(--glass-border)';
                             }}
                         />
                     </div>
@@ -103,22 +103,22 @@ const Signup = () => {
                             style={{
                                 width: '100%',
                                 height: '56px',
-                                background: 'rgba(255,255,255,0.05)',
-                                border: '1px solid rgba(255,255,255,0.1)',
+                                background: 'var(--glass-bg)',
+                                border: '1px solid var(--glass-border)',
                                 borderRadius: '12px',
                                 padding: '0 20px',
                                 fontSize: '1.1rem',
-                                color: '#fff',
+                                color: 'var(--text-primary)',
                                 outline: 'none',
                                 transition: 'all 0.2s'
                             }}
                             onFocus={(e) => {
-                                e.target.style.background = 'rgba(255,255,255,0.1)';
-                                e.target.style.borderColor = 'rgba(255,255,255,0.3)';
+                                e.target.style.background = 'var(--glass-highlight)';
+                                e.target.style.borderColor = 'var(--text-secondary)';
                             }}
                             onBlur={(e) => {
-                                e.target.style.background = 'rgba(255,255,255,0.05)';
-                                e.target.style.borderColor = 'rgba(255,255,255,0.1)';
+                                e.target.style.background = 'var(--glass-bg)';
+                                e.target.style.borderColor = 'var(--glass-border)';
                             }}
                         />
                     </div>
@@ -131,22 +131,22 @@ const Signup = () => {
                             style={{
                                 width: '100%',
                                 height: '56px',
-                                background: 'rgba(255,255,255,0.05)',
-                                border: '1px solid rgba(255,255,255,0.1)',
+                                background: 'var(--glass-bg)',
+                                border: '1px solid var(--glass-border)',
                                 borderRadius: '12px',
                                 padding: '0 20px',
                                 fontSize: '1.1rem',
-                                color: '#fff',
+                                color: 'var(--text-primary)',
                                 outline: 'none',
                                 transition: 'all 0.2s'
                             }}
                             onFocus={(e) => {
-                                e.target.style.background = 'rgba(255,255,255,0.1)';
-                                e.target.style.borderColor = 'rgba(255,255,255,0.3)';
+                                e.target.style.background = 'var(--glass-highlight)';
+                                e.target.style.borderColor = 'var(--text-secondary)';
                             }}
                             onBlur={(e) => {
-                                e.target.style.background = 'rgba(255,255,255,0.05)';
-                                e.target.style.borderColor = 'rgba(255,255,255,0.1)';
+                                e.target.style.background = 'var(--glass-bg)';
+                                e.target.style.borderColor = 'var(--glass-border)';
                             }}
                         />
                     </div>
@@ -158,8 +158,8 @@ const Signup = () => {
                             width: '100%',
                             height: '56px',
                             borderRadius: '12px',
-                            background: '#fff',
-                            color: '#000',
+                            background: 'var(--text-primary)',
+                            color: 'var(--bg-dark)',
                             border: 'none',
                             fontSize: '1.1rem',
                             fontWeight: 600,
@@ -176,8 +176,8 @@ const Signup = () => {
                 </form>
 
                 <div style={{ marginTop: '40px', textAlign: 'center' }}>
-                    <p style={{ color: 'rgba(255,255,255,0.6)' }}>
-                        Already have an account? <Link to="/login" style={{ color: '#fff', fontWeight: 600, textDecoration: 'none' }}>Sign in</Link>
+                    <p style={{ color: 'var(--text-secondary)' }}>
+                        Already have an account? <Link to="/login" style={{ color: 'var(--text-primary)', fontWeight: 600, textDecoration: 'none' }}>Sign in</Link>
                     </p>
                 </div>
             </motion.div>

@@ -4,7 +4,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as random from 'maath/random/dist/maath-random.esm';
 
-const ParticleField = (props) => {
+const ParticleField = ({ color, ...props }) => {
     const ref = useRef();
     const boxRef = useRef();
 
@@ -26,7 +26,7 @@ const ParticleField = (props) => {
             <Points ref={ref} positions={sphere} stride={3} frustumCulled={false} {...props}>
                 <PointMaterial
                     transparent
-                    color="#ffffff"
+                    color={color || "#ffffff"}
                     size={0.002}
                     sizeAttenuation={true}
                     depthWrite={false}
